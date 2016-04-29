@@ -17,7 +17,7 @@ io.on('connection', function(socket) {
 
 		// io.emit == send to all incl. sender
 		// socket.broadcast.emit == send to all but sender
-		socket.broadcast.emit('message', message);
+		io.emit('message', message);
 	});
 
 	socket.emit('message', {

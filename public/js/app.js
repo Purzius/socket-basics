@@ -1,13 +1,16 @@
 var socket = io();
 
-socket.on('connect', function () {
-	console.log('Client connected to server :D');
-});
+// socket on connect
+	socket.on('connect', function () {
+		console.log('Client connected to server :D');
+	});
 
-socket.on('message', function (message) {
-	console.log('New message: ' + message.text);
-});
+// socket message received
+	socket.on('message', function (message) {
+		console.log('New message: ' + message.text);
 
+		$('#messages').append('<p>' + message.text + '</p>');
+	});
 
 // handle submit of message
 	var $form = $('#message-form');
