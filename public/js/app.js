@@ -23,9 +23,11 @@ console.log(name + ' wants to join ' + room);
 		console.log('New message: ' + message.text);
 		var momentTimestamp = moment.utc(message.timestamp);
 		var momentTimestampFormat = momentTimestamp.local().format('h:mm a');
+		var $messageOutput = $('<li class="list-group-item"></li>');
 
-		$messages.append('<p><strong>' + message.name + ' ' + momentTimestampFormat + '</strong></p>');
-		$messages.append('<p>' + message.text +'</p>');
+		$messageOutput.append('<p><strong>' + message.name + ' ' + momentTimestampFormat + '</strong></p>');
+		$messageOutput.append('<p>' + message.text +'</p>');
+		$messages.append($messageOutput);
 	});
 
 // handle submit of message

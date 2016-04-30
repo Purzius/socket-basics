@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Socket IO Basics</title>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Socket IO basics</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
 <body>
-	<a href="/index.html">Change settings</a>
+	<div class="container">
+		<section class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+				<div class="well">
+					<a href="/index.html">Change settings</a>
 
-	<h1 id="room-title"></h1>
+					<h1 id="room-title"></h1>
 
-	<div id="messages">
-		<!-- Messages reveived here -->
+					<ul id="messages" class="list-group">
+						<!-- Messages reveived here -->
+					</ul>
+
+					<form id="message-form">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="glyphicon glyphicon-comment"></i>
+								</span>
+								<input type="text" class="form-control" name="message" id="message">
+							</div>
+						</div>
+
+						<div class="form-group">				
+							<button type="submit" class="btn btn-default btn-block" name="submit" id="submit">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
 	</div>
 
-	<form id="message-form">
-		<input type="text" name="message" id="message">
-		<input type="submit" name="submit" id="submit">
-	</form>
+
+
+	
 
 	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="js/socket.io-1.4.5.js"></script>
