@@ -5,12 +5,17 @@ var room = getQueryVariable('room') || 'Space';
 var $form = $('#message-form');
 var $message = $('#message');
 var $messages = $('#messages');
+var $room = $('#room-title');
 
 console.log(name + ' wants to join ' + room);
 
 // socket on connect
 	socket.on('connect', function () {
 		console.log('Client connected to server :D');
+		socket.emit('joinRoom', {
+			name: name,
+			room: room
+		});
 	});
 
 // socket message received
@@ -37,3 +42,6 @@ console.log(name + ' wants to join ' + room);
 		$message.val('');
 
 	});
+
+// set room name
+	$room.text(room);
