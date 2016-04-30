@@ -8,8 +8,10 @@ var socket = io();
 // socket message received
 	socket.on('message', function (message) {
 		console.log('New message: ' + message.text);
+		var momentTimestamp = moment.utc(message.timestamp);
+		var momentTimestampFormat = momentTimestamp.local().format('h:mm a');
 
-		$('#messages').append('<p>' + message.text + '</p>');
+		$('#messages').append('<p><strong>' + momentTimestampFormat + ':</strong> ' + message.text + '</p>');
 	});
 
 // handle submit of message
